@@ -1,8 +1,9 @@
 return { -- A collection of small QoL plugins
   --[[
   TODO:
+ - Add explicit config to make "text search" and "find file" to look in hidden directories
+  `:Telescope find_files hidden=true` -- and technically you could add cwd=$HOME
  - Add dashboard config!
- - Add buffer close config!
  - Add neotree/LSP integration for renaming
   - This is less important, but should be useful as the LSP won't then have a stronk
     ]]
