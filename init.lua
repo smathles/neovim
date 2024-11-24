@@ -49,6 +49,7 @@ TODO-COMMENTS:
 TODO:
 - Make colourscheme global somehow? Not sure how to do this
 - Disable middle-click paste!
+- add hidden file searching to the snacks.startup
 --]]
 require 'core.setup'
 require 'core.keymaps'
