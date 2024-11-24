@@ -8,23 +8,14 @@
 TODO: 
 - Configure neo-tree to:
     - Open to cwd of whichever file is currently open (obviously not the tree window though)
-    - Hitting "enter" in the tree will open that file in a new window tab, not override current windows
-    - IDK other keybindings?
-    - Figure out how to open directories in neotree? Recursively? Non-Recursively?
     - How to find directories using the "/" search functionality?
 - Configure tab-manager-plugin-of-some-sort to:
-    - Have clickable "X's" to close
-    - Navigate using alt+tab and alt+shift+tab
     - New files using alt+t and close tabs using alt+w?
 - Configure code-runner to:
     - IDK run code?
 
 2024/11/12:
 - Style choices:
-  - Statusbar: I like halfway between Astronvim and LazyVim
-  - I like NvChad's tabline stuff, especially alt+tab to shift neovim-specific tabs!
-    - Also implement alt+w and alt+t to close and open new files respectively.
-  - I'm sick of the bad search functionality in neo-tree. Use NvChad's file explorer!
 - REMAP x AND d TO NOT GET SAVED TO THE REGISTER!!!!! 
   - Or at least move them to a "deleted" register, rather than my beloved normal "default, global clipboard" register.
 
@@ -56,7 +47,7 @@ TODO-COMMENTS:
 - make highlighting consistent!
 
 TODO:
-- Make colourscheme global somehow? Not sure how to do this (---@param or something like that?)
+- Make colourscheme global somehow? Not sure how to do this
 - Disable middle-click paste!
 --]]
 require 'core.setup'
