@@ -46,6 +46,7 @@ UFO:
 TODO:
 - Make colourscheme global somehow? Not sure how to do this
 - Disable middle-click paste!
+- Bug: Closing the current window by with ":q" with neotree + at least two tabs open, poo hits the fan and stuff is not handled gracefully!
 --]]
 require 'core.setup'
 require 'core.keymaps'
