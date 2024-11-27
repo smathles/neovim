@@ -46,11 +46,14 @@ TODO-COMMENTS:
 - make highlighting consistent!
 UFO:
 - make comment blocks fold as well
+AUTOCOMPLETE:
+- I broke/disabled it somewhere...
 
 TODO:
 - Make colourscheme global somehow? Not sure how to do this
 - Disable middle-click paste!
 - Bug: Closing the current window by with ":q" with neotree + at least two tabs open, poo hits the fan and stuff is not handled gracefully!
+- PUT AUTOCOMPLETE BACK IN!
 --]]
 require 'core.setup'
 require 'core.keymaps'
