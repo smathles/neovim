@@ -1,3 +1,7 @@
+-- TODO: Add folding for comment blocks!
+
+-- To be honest, there's SO much more this plugin can do! Like a "folding" column,
+-- preview of the folded content etc. This is a very minimal config!
 return { -- lazy.nvim plugin specification
   {
     'kevinhwang91/nvim-ufo',

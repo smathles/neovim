@@ -8,11 +8,6 @@
 TODO: 
 - Configure neo-tree to:
     - Open to cwd of whichever file is currently open (obviously not the tree window though)
-    - How to find directories using the "/" search functionality?
-- Configure tab-manager-plugin-of-some-sort to:
-    - New files using alt+t and close tabs using alt+w?
-- Configure code-runner to:
-    - IDK run code?
 
 2024/11/12:
 - Style choices:
@@ -38,18 +33,19 @@ FIXME:
 NEOTREE:
 - opening neovim in a directory doesn't change the path
 - make it dynamically reloading, update directory displayed when directory is changed via command or maybe file focused.
+- still uses netrw by default
 LUALINE:
 - Doesn't work properly on neotree.
-- doesn't display keystrokes entered
 BUFFERLINE:
 - want to be able to close tab with middle click
 TODO-COMMENTS:
 - make highlighting consistent!
+UFO:
+- make comment blocks fold as well
 
 TODO:
 - Make colourscheme global somehow? Not sure how to do this
 - Disable middle-click paste!
-- add hidden file searching to the snacks.startup
 --]]
 require 'core.setup'
 require 'core.keymaps'

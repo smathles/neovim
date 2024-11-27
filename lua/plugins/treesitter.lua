@@ -14,6 +14,15 @@ return { -- Highlight, edit, and navigate code
       additional_vim_regex_highlighting = { 'ruby' },
     },
     indent = { enable = true, disable = { 'ruby' } },
+    fold = {
+      enable = true,
+      disable = 'ruby',
+    },
+    -- Ensure comments are recognized for folding
+    fold_extra = {
+      enable = true,
+      disable = 'ruby',
+    },
   },
   config = function(_, opts)
     -- Add filetype detection for custom patterns
