@@ -37,6 +37,7 @@ NEOTREE:
 - Need to implement:
     - handling for closing by ":q" when the neotree window thing is open.
     - I think Nvimtree does this better slightly.
+    - Make it so that when neo-tree is in "fullscreen" mode, opening a buffer window will set it to be in "docked" mode, such that if the neo-tree is closed and opened again (using leader + e), it will now be in docked mode.
 LUALINE:
 - Doesn't work properly on neotree.
 BUFFERLINE:
