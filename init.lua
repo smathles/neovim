@@ -33,7 +33,10 @@ FIXME:
 NEOTREE:
 - opening neovim in a directory doesn't change the path
 - make it dynamically reloading, update directory displayed when directory is changed via command or maybe file focused.
-- still uses netrw by default
+- still uses netrw by defaulto
+- Need to implement:
+    - handling for closing by ":q" when the neotree window thing is open.
+    - I think Nvimtree does this better slightly.
 LUALINE:
 - Doesn't work properly on neotree.
 BUFFERLINE:
