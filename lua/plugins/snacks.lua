@@ -3,6 +3,8 @@ return { -- A collection of small QoL plugins
   TODO:
  - Add explicit config to make "text search" and "find file" to look in hidden directories
   `:Telescope find_files hidden=true` -- and technically you could add cwd=$HOME
+  `:lua Snacks.dashboard.pick('files', {hidden=true})`
+ { icon = " ", key = "f", desc = "Find File", action = ":lua Snacks.dashboard.pick('files')" }
  - Add dashboard config!
  - Add neotree/LSP integration for renaming
   - This is less important, but should be useful as the LSP won't then have a stronk
@@ -11,7 +13,6 @@ return { -- A collection of small QoL plugins
   priority = 1000,
   lazy = false,
   opts = {
-    bigfile = { enabled = true },
     dashboard = {
       enabled = true,
       sections = {
@@ -23,5 +24,6 @@ return { -- A collection of small QoL plugins
     },
     quickfile = { enabled = true },
     bufdelete = { enabled = true },
+    bigfile = { enabled = true },
   },
 }
