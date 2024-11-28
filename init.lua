@@ -40,8 +40,6 @@ NEOTREE:
     - Make it so that when neo-tree is in "fullscreen" mode, opening a buffer window will set it to be in "docked" mode, such that if the neo-tree is closed and opened again (using leader + e), it will now be in docked mode.
 LUALINE:
 - Doesn't work properly on neotree.
-BUFFERLINE:
-- want to be able to close tab with middle click
 TODO-COMMENTS:
 - make highlighting consistent!
 UFO:

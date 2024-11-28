@@ -1,7 +1,8 @@
 --[[
 TODO:
 This plugin still has the following issues:
-- opening neovim in a directory doesn't change the path
+- opening neovim in a directory doesn't change the cwd for neotree!
+  - Optional: Write a function to automatically change this when opening/closing neovim
 --]]
 return {
   'nvim-neo-tree/neo-tree.nvim',
