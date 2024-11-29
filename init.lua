@@ -14,18 +14,10 @@ TODO:
 - REMAP x AND d TO NOT GET SAVED TO THE REGISTER!!!!! 
   - Or at least move them to a "deleted" register, rather than my beloved normal "default, global clipboard" register.
 
-2024/11/19:
-- Maybe group plugins by type?
-    - like UI (lualine/bufferline/colourscheme), backend (linting, treesitter, LSP) etc
-    - group by singular file or further directories?
-
 TJ's interesting stuff!:
     After understanding a bit more about Lua, you can use `:help lua-guide` as a
   reference for how Neovim integrates Lua.
     - :help lua-guide
-
-    Kickstart provides a keymap "<space>sh" to [s]earch the [h]elp documentation,
-    which is very useful when you're not exactly sure of what you're looking for.
 --]]
 -----------------------------------------------------------------------------------------------------------------------
 --[[
@@ -40,15 +32,11 @@ NEOTREE:
     - Make it so that when neo-tree is in "fullscreen" mode, opening a buffer window will set it to be in "docked" mode, such that if the neo-tree is closed and opened again (using leader + e), it will now be in docked mode.
 LUALINE:
 - Doesn't work properly on neotree.
-TODO-COMMENTS:
-- make highlighting consistent!
 UFO:
 - make comment blocks fold as well
 
 TODO:
-- Make colourscheme global somehow? Not sure how to do this
-- Disable middle-click paste!
-- Bug: Closing the current window by with ":q" with neotree + at least two tabs open, poo hits the fan and stuff is not handled gracefully!
+As in GitHub!
 --]]
 require 'core.setup'
 require 'core.keymaps'
