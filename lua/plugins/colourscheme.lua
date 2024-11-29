@@ -3,9 +3,14 @@ return { -- Set global colourscheme
   priority = 1000, -- Make sure to load this before all the other start plugins.
   init = function()
     require('gruvbox').setup {
-      italic = {
-        comments = true,
-      },
+      -- This no worky?????!!!!!
+      -- italic = {
+      --   comments = true,
+      --   strings = false,
+      --   folds = false,
+      --   emphasis = true,
+      --   operators = false,
+      -- },
       overrides = {
         SignColumn = { bg = '#282828' }, -- Make signcolumn color be consistent with rest of colourscheme
       },
