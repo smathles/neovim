@@ -1,12 +1,13 @@
 # Smathles' Neovim Configuration
+<div style="display: flex; justify-content: space-between;">
 
-This is like the best neovim configuration ever.
 
-Except for all the bugs.
+  <img src="https://github.com/user-attachments/assets/e279288b-f77b-4166-a3e0-c3ab5123d140" alt="snacks dashboard" width="48%" />
+  
+  <img src="https://github.com/user-attachments/assets/aab4cc00-5508-476f-a625-4367b23009fb" alt="working-env" width="48%" />
 
-They're features or something.
+</div>
 
-Maybe they'll be fixed one day.
+Much of the backend functionality has been taken from or inspired by TJ DeVries' awesome [Kickstart](https://github.com/nvim-lua/kickstart.nvim) project. Thanks TJ!
 
-> This is a readme file.
-> Isn't that cool??????
+This is a very early WIP. No guarentees!
