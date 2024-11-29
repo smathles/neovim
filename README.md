@@ -10,4 +10,4 @@
 
 Much of the backend functionality has been taken from or inspired by TJ DeVries' awesome [Kickstart](https://github.com/nvim-lua/kickstart.nvim) project. Thanks TJ!
 
-This is a very early WIP. No guarentees!
+This is a very early WIP. No guarantees!
