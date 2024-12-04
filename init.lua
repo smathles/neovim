@@ -37,6 +37,8 @@ UFO:
 
 TODO:
 As in GitHub!
+- But like maybe also write a "watcher" function that checks for git status updates and directory changes when a cmd is sent, and updates Neotree.
+- Also write a function that handles "nvim dir/to/open/in" and manages the path and neotreedisplay in netrw mode.
 --]]
 require 'core.setup'
 require 'core.keymaps'
