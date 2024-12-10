@@ -11,7 +11,7 @@ vim.g.maplocalleader = ' '
 
 vim.g.have_nerd_font = true
 
--- Remove tilda characters!
+-- Remove tilde characters!
 vim.opt.fillchars = { eob = ' ' }
 
 -- Make line numbers default
