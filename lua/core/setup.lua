@@ -9,6 +9,11 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
+-- Disable netrw
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
+-- Use nerd font if available
 vim.g.have_nerd_font = true
 
 -- Remove tilde characters!

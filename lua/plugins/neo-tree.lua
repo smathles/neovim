@@ -1,19 +1,18 @@
--- --[[
--- TODO:
--- This plugin still has the following issues:
--- - opening neovim in a directory doesn't change the cwd for neotree!
---   - Optional: Write a function to automatically change this when opening/closing neovim
--- --]]
+--[[
+NOTE: For inexplicable reasons, this needs to be a "config = function()" setup for the netrw hijacking to work properly. Idk why, but it works! I'm sure I could debug it and turn it back into "opts = {}" setup, but frankly idrc right now.
+--]]
+
 return {
   'nvim-neo-tree/neo-tree.nvim',
   version = '*',
+  lazy = false, -- Load this quickly to make sure netrw behaviour loads immediately!
+  priority = 1000,
   dependencies = {
     'nvim-lua/plenary.nvim',
     'nvim-tree/nvim-web-devicons', -- not strictly required, but recommended
     'MunifTanjim/nui.nvim',
     -- '3rd/image.nvim', -- cool, but might increase time for neo-tree to open
   },
-  cmd = 'Neotree',
   keys = {
     {
       '<leader>e',
@@ -30,44 +29,53 @@ return {
       desc = 'File [E]xplorer (home)',
     },
   },
-  opts = {
-    filesystem = {
-      bind_to_cwd = false,
-      follow_current_file = { enabled = true },
-      use_libuv_file_watcher = true, -- BUG: THIS DOESN'T WORK PROPERLY!
-      hijack_netrw_behavior = 'open_current', -- BUG: THIS DOESN'T WORK PROPERLY! Note that this relies on neovim autocommand events.
-    },
-    window = {
-      width = 25,
-      mappings = {
-        ['<space>'] = false,
-        ['Y'] = { -- Yank filepath to clipboard!
-          function(state)
-            local node = state.tree:get_node()
-            local path = node:get_id()
-            vim.fn.setreg('+', path, 'c')
-          end,
-          desc = 'Copy Path to Clipboard',
-        },
-        ['P'] = { 'toggle_preview', config = { use_float = false } },
+  config = function()
+    require('neo-tree').setup {
+      open_files_do_not_replace_types = { 'terminal' },
+      close_if_last_window = true,
+      filesystem = {
+        bind_to_cwd = true,
+        follow_current_file = { enabled = true },
+        hijack_netrw_behavior = 'open_current',
+        use_libuv_file_watcher = false,
       },
-    },
-    default_component_configs = {
-      indent = {
-        with_expanders = true, -- if nil and file nesting is enabled, will enable expanders
-        expander_collapsed = '',
-        expander_expanded = '',
-        expander_highlight = 'NeoTreeExpander',
-      },
-      git_status = {
-        symbols = {
-          unstaged = '󰄱',
-          staged = '󰱒',
+      window = {
+        width = 25,
+        mappings = {
+          ['<space>'] = false,
+          ['Y'] = { -- Yank filepath to clipboard!
+            function(state)
+              local node = state.tree:get_node()
+              local path = node:get_id()
+              vim.fn.setreg('+', path, 'c')
+            end,
+            desc = 'Copy Path to Clipboard',
+          },
+          ['P'] = { 'toggle_preview', config = { use_float = true } },
+          -- ['<bs>'] = 'navigate_up',
+          -- ['.'] = 'set_root',
+          -- ['D'] = 'fuzzy_finder_directory',
+          -- ['#'] = 'fuzzy_sorter',
         },
       },
-    },
-  },
+      default_component_configs = {
+        indent = {
+          with_expanders = true, -- if nil and file nesting is enabled, will enable expanders
+          expander_collapsed = '',
+          expander_expanded = '',
+          expander_highlight = 'NeoTreeExpander',
+        },
+        git_status = {
+          symbols = {
+            unstaged = '󰄱',
+            staged = '󰱒',
+          },
+        },
+      },
+    }
+  end,
 }
+
 -- {
 --   "nvim-neo-tree/neo-tree.nvim",
 --   opts = function(_, opts)
