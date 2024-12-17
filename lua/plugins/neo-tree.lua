@@ -37,7 +37,7 @@ return {
         bind_to_cwd = true,
         follow_current_file = { enabled = true },
         hijack_netrw_behavior = 'open_current',
-        use_libuv_file_watcher = false,
+        use_libuv_file_watcher = true,
       },
       window = {
         width = 25,
