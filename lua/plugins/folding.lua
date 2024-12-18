@@ -26,8 +26,8 @@ return { -- lazy.nvim plugin specification
       }
     end,
   },
-  -- Optional LSP configuration for nvim-ufo
-  {
+
+  { -- Optional LSP configuration for nvim-ufo
     'neovim/nvim-lspconfig',
     config = function()
       local capabilities = vim.lsp.protocol.make_client_capabilities()
