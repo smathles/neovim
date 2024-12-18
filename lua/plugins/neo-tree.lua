@@ -1,18 +1,16 @@
---[[
-NOTE: For inexplicable reasons, this needs to be a "config = function()" setup for the netrw hijacking to work properly. Idk why, but it works! I'm sure I could debug it and turn it back into "opts = {}" setup, but frankly idrc right now.
---]]
-
 return {
   'nvim-neo-tree/neo-tree.nvim',
   version = '*',
   lazy = false, -- Load this quickly to make sure netrw behaviour loads immediately!
   priority = 1000,
+
   dependencies = {
     'nvim-lua/plenary.nvim',
     'nvim-tree/nvim-web-devicons', -- not strictly required, but recommended
     'MunifTanjim/nui.nvim',
     -- '3rd/image.nvim', -- cool, but might increase time for neo-tree to open
   },
+
   keys = {
     {
       '<leader>e',
@@ -21,14 +19,8 @@ return {
       end,
       desc = 'File [e]xplorer (cwd)',
     },
-    {
-      '<leader>E',
-      function()
-        require('neo-tree.command').execute { toggle = true, dir = vim.uv.os_homedir() }
-      end,
-      desc = 'File [E]xplorer (home)',
-    },
   },
+
   config = function()
     require('neo-tree').setup {
       open_files_do_not_replace_types = { 'terminal' },
@@ -52,10 +44,10 @@ return {
             desc = 'Copy Path to Clipboard',
           },
           ['P'] = { 'toggle_preview', config = { use_float = true } },
-          -- ['<bs>'] = 'navigate_up',
-          -- ['.'] = 'set_root',
-          -- ['D'] = 'fuzzy_finder_directory',
-          -- ['#'] = 'fuzzy_sorter',
+          ['<bs>'] = 'navigate_up',
+          ['.'] = 'set_root',
+          ['D'] = 'fuzzy_finder_directory',
+          ['#'] = 'fuzzy_sorter',
         },
       },
       default_component_configs = {
@@ -90,3 +82,7 @@ return {
 --     })
 --   end,
 -- }
+
+--[[
+NOTE: For inexplicable reasons, this needs to be a "config = function()" setup for the netrw hijacking to work properly. Idk why, but it works! I'm sure I could debug it and turn it back into "opts = {}" setup, but frankly idrc right now.
+--]]
