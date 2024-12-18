@@ -1,5 +1,3 @@
--- Default config from LazyVim. You might want to customise this!
-
 return {
   'lukas-reineke/indent-blankline.nvim',
   opts = function()
