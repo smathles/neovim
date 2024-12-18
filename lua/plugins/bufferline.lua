@@ -50,10 +50,10 @@ return {
       },
       highlights = {
         offset_separator = {
-          bg = '#282828', -- Gruvbox background, find a better way to declare this
+          bg = '#282828', -- TODO: Gruvbox background, find a better way to declare this
         },
         separator = {
-          fg = '#434C5E', -- Gruvbox blue, find a better way to declare this
+          fg = '#434C5E', -- TODO: Gruvbox blue, find a better way to declare this
         },
         buffer_selected = {
           bold = true,
