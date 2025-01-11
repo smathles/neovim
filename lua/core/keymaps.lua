@@ -47,5 +47,6 @@ vim.keymap.set('n', '<leader>ba', '<cmd> enew <CR>', { desc = 'New buffer' }) --
 -- TODO: Make this work for mid-line "tabs" as well
 vim.keymap.set('i', '<S-Tab>', '<C-\\><C-N><<<C-\\><C-N>^i')
 
--- Add ctrl+backspace to delete word in insert mode (heretic)
+-- Add bindings to delete whole words in insert mode (heretic)
 vim.keymap.set('i', '<C-BS>', '<C-w>', { noremap = true, silent = true })
+vim.keymap.set('i', '<C-Del>', '<C-o>dw', { noremap = true, silent = true })
