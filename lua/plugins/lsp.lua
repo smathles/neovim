@@ -41,10 +41,7 @@ return { -- LSP Plugins
       vim.api.nvim_create_autocmd('LspAttach', {
         group = vim.api.nvim_create_augroup('kickstart-lsp-attach', { clear = true }),
         callback = function(event)
-          -- NOTE: Remember that Lua is a real programming language, and as such it is possible
-          -- to define small helper and utility functions so you don't have to repeat yourself.
-          --
-          -- In this case, we create a function that lets us more easily define mappings specific
+          -- We create a function that lets us more easily define mappings specific
           -- for LSP related items. It sets the mode, buffer and description for us each time.
           local map = function(keys, func, desc, mode)
             mode = mode or 'n'
@@ -147,6 +144,7 @@ return { -- LSP Plugins
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
       local servers = {
         clangd = {},
+        csharp_ls = {},
         ts_ls = {},
         jsonls = {},
         rust_analyzer = {},
@@ -200,6 +198,8 @@ return { -- LSP Plugins
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
       require('mason-lspconfig').setup {
+        ensure_installed = {},
+        automatic_installation = true,
         handlers = {
           function(server_name)
             local server = servers[server_name] or {}
