@@ -73,6 +73,35 @@ vim.schedule(function()
   vim.opt.clipboard = 'unnamedplus'
 end)
 
+-- TODO: This does not account for :%y or delete/change/substitute yet!
+-- What this really needs to be able to do is:
+--  - yank commands go to clipboard by default, whether 'y', 'yy', ':%y'
+--  - change/delete/substitute go to '""' by default
+--
+
+-- local function map(mode, input, override, opts)
+--   opts = opts or {}
+--   vim.keymap.set(mode, input, override, opts)
+-- end
+--
+-- -- Explicitly set the empty register so it still works after we override it by default
+-- map('n', '""y', '""y')
+-- map('n', '""yy', '""yy')
+-- map('n', '""p', '""p')
+-- map('n', '""P', '""P')
+--
+-- local function clipboard_fallback(cmd)
+--   return function()
+--     return (vim.v.register == '"' and '"+' or '') .. cmd
+--   end
+-- end
+--
+-- -- Override "" register copy-paste commands to "+ register
+-- map('n', 'y', clipboard_fallback 'y', { expr = true })
+-- map('n', 'yy', clipboard_fallback 'yy', { expr = true })
+-- map('n', 'p', clipboard_fallback 'p', { expr = true })
+-- map('n', 'P', clipboard_fallback 'P', { expr = true })
+
 -- Highlight when yanking (copying) text
 vim.api.nvim_create_autocmd('TextYankPost', {
   desc = 'Highlight when yanking (copying) text',

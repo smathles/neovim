@@ -25,12 +25,11 @@ vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower win
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
 -- Buffers
-vim.keymap.set('n', '<Tab>', ':bnext<CR>') -- Next buffer with leader + Tab
-vim.keymap.set('n', '<S-Tab>', ':bprevious<CR>') -- Previous buffer with leader + Shift + Tab
-vim.keymap.set('n', '<A-Tab>', ':bnext<CR>') -- Next buffer with Alt + Tab
-vim.keymap.set('n', '<A-S-Tab>', ':bprevious<CR>') -- Previous buffer with Alt + Shift + Tab
+vim.keymap.set('n', '<Tab>', ':bnext<CR>') -- Next buffer with tab (in normal mode)
+vim.keymap.set('n', '<S-Tab>', ':bprevious<CR>') -- Previous buffer with shift + tab (in normal mode)
 vim.keymap.set('n', '<leader>bn', ':bnext<CR>', { desc = 'Next buffer' }) -- Next buffer with leader + b + n
 vim.keymap.set('n', '<leader>bp', ':bprevious<CR>', { desc = 'Previous buffer' }) -- Previous buffer with leader + b + p
+vim.keymap.set('n', '<leader>ba', '<cmd> enew <CR>', { desc = 'New buffer' }) -- New buffer with leader + b + a
 
 -- Snacks Buffer handling to retain window conditions on buffer close
 vim.keymap.set('n', '<leader>bx', function()
@@ -41,12 +40,10 @@ vim.keymap.set('n', '<leader>bq', function()
   require('snacks').bufdelete.all()
 end, { desc = 'Close all buffers' })
 
-vim.keymap.set('n', '<leader>ba', '<cmd> enew <CR>', { desc = 'New buffer' }) -- New buffer with leader + b + a
-
 -- Add in shift+tab to dedent lines in insert mode
 -- TODO: Make this work for mid-line "tabs" as well
 vim.keymap.set('i', '<S-Tab>', '<C-\\><C-N><<<C-\\><C-N>^i')
 
 -- Add bindings to delete whole words in insert mode (heretic)
-vim.keymap.set('i', '<C-BS>', '<C-w>', { noremap = true, silent = true })
-vim.keymap.set('i', '<C-Del>', '<C-o>dw', { noremap = true, silent = true })
+vim.keymap.set('i', '<C-BS>', '<C-w>', opts)
+vim.keymap.set('i', '<C-Del>', '<C-o>dw', opts)
