@@ -68,17 +68,17 @@ vim.opt.scrolloff = 10
 vim.opt.termguicolors = true
 
 -- Sync clipboard between OS and Neovim.
---  Schedule the setting after `UiEnter` because it can increase startup-time.
+-- Schedule the setting after `UiEnter` because it can increase startup-time.
 vim.schedule(function()
   vim.opt.clipboard = 'unnamedplus'
 end)
 
--- TODO: This does not account for :%y or delete/change/substitute yet!
--- What this really needs to be able to do is:
---  - yank commands go to clipboard by default, whether 'y', 'yy', ':%y'
---  - change/delete/substitute go to '""' by default
+-- -- TODO: This does not account for :%y or delete/change/substitute yet!
+-- -- What this really needs to be able to do is:
+-- --  - yank commands go to clipboard by default, whether 'y', 'yy', ':%y'
+-- --  - change/delete/substitute go to '""' by default
+-- --
 --
-
 -- local function map(mode, input, override, opts)
 --   opts = opts or {}
 --   vim.keymap.set(mode, input, override, opts)
@@ -96,7 +96,6 @@ end)
 --   end
 -- end
 --
--- -- Override "" register copy-paste commands to "+ register
 -- map('n', 'y', clipboard_fallback 'y', { expr = true })
 -- map('n', 'yy', clipboard_fallback 'yy', { expr = true })
 -- map('n', 'p', clipboard_fallback 'p', { expr = true })
