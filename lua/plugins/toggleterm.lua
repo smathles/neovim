@@ -16,6 +16,12 @@ return { -- IDE-like terminal functionality
 
 -- BUG: Make toggleterm "top layer", so neovim doesn't 'jump up' when toggleterm is shown.
 
+-- BUG: If terminal is still present, can't :wqa.
+-- E948: Job still running
+-- E676: No matching autocommands for buftype=terminal buffer
+--
+-- This seems to be present for a lot of people... You can get around it with :wa then :wq, but like this is goofy aah. Could be a vim bug?
+
 --[[
 require("toggleterm").setup{
   -- size can be a number or function which is passed the current terminal
