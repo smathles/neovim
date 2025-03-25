@@ -81,14 +81,10 @@ vim.api.nvim_set_keymap('n', 'x', '""x', { noremap = true })
 vim.api.nvim_set_keymap('v', 'd', '""d', { noremap = true })
 vim.api.nvim_set_keymap('v', 'c', '""c', { noremap = true })
 vim.api.nvim_set_keymap('v', 'x', '""x', { noremap = true })
-
--- BUG:
--- This approach does not account for command mode deletions! (:delete, etc)
--- This approach writes to the 0 register for some delete operations when vim.opt.clipboard = 'unnamedplus' is set. Why!?
-
+-- BUG: This approach does not account for command mode deletions! (:delete, etc)
 -- NOTE: Investigate you actually need all of these settings (change, substitute!)
 
--- -- TODO: This does not account for :%y or delete/change/substitute yet!
+-- -- TODO: The following does not account for :%y or delete/change/substitute yet!
 -- -- What this really needs to be able to do is:
 -- --  - yank commands go to clipboard by default, whether 'y', 'yy', ':%y'
 -- --  - paste commands go to clipboard by default, whether 'p', 'P',
