@@ -1,0 +1,145 @@
+yes cheese
+2
+3
+4
+7  Man I do love bread
+9  Man I do love bread
+10 Man I do love bread
+11 Man I do love bread
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+VIM DEFAULTS:
+
+"[variable]d[motion] --> use dd
+	dd --> "", "1 populated       -- default register (""), delete queue head ("1)
+	""dd --> "", "0, "1 populated -- BUT LIKE WHY?????????? HSDKFLEIHFSDLJFOIEHFSLKDJ
+	"0dd --> "", "0, "1 populated -- populate "0 explicitly, copy to delete queue head ("1)
+	"1dd --> "", "1, "2 populated -- populate "1 first, pushed along when copying to "1 (so "1, "2)
+	"2dd --> "", "1, "3 populated -- populate "2 first, pushed along when copying to "1 (so "1, "3)
+	(etc for other integers)
+	"_dd --> nothing	      -- /dev/null equivalent
+
+
+
+
+visual_selection + "[variable]d[motion] --> use dd
+	(v) dd -->
+
+
+
+
+"[variable](x/X)
+	x -->
+
+
+
+
+visual_selection + "[variable](x/X)
+With return character:
+	(v) x --> "", "1        -- OK, this makes sense
+	(v) ""x --> "", "0, "1
+Without return character:
+	(v) x --> "", "-	-- OK, a little weird but I get it
+	(v) ""x --> "", "0	-- What on earth is going on??? This is vanilla Vim behaviour???
+
+
+
+
+"[variable]c[motion] --> use caw
+caw -->
+
+
+
+
+
+visual_selection + "[variable]c[motion] --> use caw
+(v) caw  --> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Neovim: with 'vim.opt.clipboard = "unnamedplus"' set.
+
+--[[
+-- 1 yes cheese
+-- 2 yes cheese
+-- 5 yes cheese
+-- 6 yes cheese
+-- 7 yes cheese
+-- 8 es chese
+-- 9 yes cheese
+--]]
+--
+--
+--
+--
+--
+--
+--
+-- TODO: Test all delete options (dd, visual mode --> d, visual mode + <CR> character -->, daw (probably same as dd, but check)), test all substitute, change operations!
+--[[
+--
+--
+--
+--
+--
+--
+--
+--
+-- NORMAL MODE:
+-- Summary Command: "[variable] --> dd
+--
+'""dd', "0, "1, "" are populated, + is not.    -- I literally don't know why both 0 and 1 are filled. 
+'"0dd', "0, "1, "" are populated, + is not.    -- Explicitly told to go to 0, goes to 1 as well because it's a delete operation. No pushing values along, 0 is not connected inherently to 1.
+'"1dd', "1, "2, "" are populated, + is not.    -- Explicitly told to go to 1, THEN goes to 1 as well (because it's a delete operation), which pushes the initial explicit location to position 2.
+'"2dd', "1, "3, "" are populated, + is not.    -- Explicitly told to go to 2, then goes to 1 as well because it's a delete operation, which pushes the initial explicit location to position 3.
+'"3dd', "1, "4, are is populated, + is not.    -- Explicitly told to go to 3, then goes to 1 as well because it's a delete operation, which pushes the initial explicit location to position 4.
+'"7dd', "1, "8, are is populated, + is not.    -- Explicitly told to go to 7, then goes to 1 as well because it's a delete operation, which pushes the initial explicit location to position 8.
+'"_dd', nothing is populated.       -- /dev/null equivalent, nothing happens as expected.
+--
+-- VISUAL MODE(S):
+-- Summary Command: v/V --> [selection/motion] --> "" --> x/X
+--
+-- If it's small (normally -), gets sent to "" and "0  BUG: SHOULD NOT GO TO ""
+-- If it's enough (normally "), gets sent to "" and "0  BUG: SHOULD NOT GO TO "", SHOULD GO TO "1
+-- If it's small (normally -), AND IT HAS A <CR> MARK ON THE END, it gets sent to the " and 0 and 1 registers.
+-- If it's enough (normally ") AND IT HAS A <CR> MARK ON THE END, it gets sent to the " and 0 and 1 registers.
+--
+--
+--
+--
+-- theThis hens with 'x' in visual mode too, just the same way as 
+-- With 'x' in V-line mode, this functions just the same as 'd' (+, ", 1)
+-- With 'x' or 'X' in normal mode, this goes to the " register (as expected) BUT ALSO 0! Why!?
+--]]
+
+

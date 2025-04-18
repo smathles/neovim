@@ -16,7 +16,7 @@ vim.g.loaded_netrwPlugin = 1
 -- Use nerd font if available
 vim.g.have_nerd_font = true
 
--- Remove tilde characters!
+-- Remove trailing tilde characters!
 vim.opt.fillchars = { eob = ' ' }
 
 -- Make line numbers default
@@ -38,7 +38,7 @@ vim.opt.undofile = true
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
--- Keep signcolumn on by default
+-- Keep signcolumn off by default
 vim.opt.signcolumn = 'no'
 
 -- Decrease update time
@@ -72,46 +72,17 @@ vim.opt.termguicolors = true
 vim.schedule(function()
   vim.opt.clipboard = 'unnamedplus'
 end)
---
--- TODO: Alternative way of making clipboard default to sane values
+
+-- Make clipboard default all non-yank commands to "" register (similar to normal OS behaviour)
+--  BUG: This approach does not account for command mode deletions! (:delete, etc)
 vim.api.nvim_set_keymap('n', 'd', '""d', { noremap = true })
 vim.api.nvim_set_keymap('n', 'c', '""c', { noremap = true })
 vim.api.nvim_set_keymap('n', 's', '""s', { noremap = true })
 vim.api.nvim_set_keymap('n', 'x', '""x', { noremap = true })
 vim.api.nvim_set_keymap('v', 'd', '""d', { noremap = true })
 vim.api.nvim_set_keymap('v', 'c', '""c', { noremap = true })
+vim.api.nvim_set_keymap('v', 's', '""s', { noremap = true })
 vim.api.nvim_set_keymap('v', 'x', '""x', { noremap = true })
--- BUG: This approach does not account for command mode deletions! (:delete, etc)
--- NOTE: Investigate you actually need all of these settings (change, substitute!)
-
--- -- TODO: The following does not account for :%y or delete/change/substitute yet!
--- -- What this really needs to be able to do is:
--- --  - yank commands go to clipboard by default, whether 'y', 'yy', ':%y'
--- --  - paste commands go to clipboard by default, whether 'p', 'P',
--- --  - change/delete/substitute go to '""' by default
--- --
---
--- local function map(mode, input, override, opts)
---   opts = opts or {}
---   vim.keymap.set(mode, input, override, opts)
--- end
---
--- -- Explicitly set the empty register so it still works after we override it by default
--- map('n', '""y', '""y')
--- map('n', '""yy', '""yy')
--- map('n', '""p', '""p')
--- map('n', '""P', '""P')
---
--- local function clipboard_fallback(cmd)
---   return function()
---     return (vim.v.register == '"' and '"+' or '') .. cmd
---   end
--- end
---
--- map('n', 'y', clipboard_fallback 'y', { expr = true })
--- map('n', 'yy', clipboard_fallback 'yy', { expr = true })
--- map('n', 'p', clipboard_fallback 'p', { expr = true })
--- map('n', 'P', clipboard_fallback 'P', { expr = true })
 
 -- Highlight when yanking (copying) text
 vim.api.nvim_create_autocmd('TextYankPost', {

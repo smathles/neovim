@@ -20,5 +20,14 @@ return { -- A collection of small QoL plugins
     quickfile = { enabled = true },
     bufdelete = { enabled = true },
     bigfile = { enabled = true },
+    terminal = {
+      win = {
+        style = 'terminal',
+        position = 'float',
+      },
+    },
   },
 }
+-- vim.keymap.set('n', '<leader>t', function()
+-- require('snacks').terminal()
+-- end, {desc = '[T]oggle terminal'})
