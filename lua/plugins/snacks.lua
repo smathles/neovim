@@ -1,9 +1,9 @@
 return { -- A collection of small QoL plugins
   --[[
-  TODO:
- - Add neotree/LSP integration for renaming
-  - This is less important, but should be useful as the LSP won't then have a stronk
-    ]]
+   TODO:
+  Add neotree/LSP integration for renaming
+  This is less important, but should be useful as the LSP won't then have a stronk
+  ]]
   'folke/snacks.nvim',
   priority = 1000,
   lazy = false,
@@ -17,7 +17,9 @@ return { -- A collection of small QoL plugins
         { section = 'startup' },
       },
     },
+    indent = { enabled = true },
     quickfile = { enabled = true },
+    lazygit = { enabled = true },
     bufdelete = { enabled = true },
     bigfile = { enabled = true },
     terminal = {
