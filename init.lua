@@ -17,7 +17,6 @@ TODO: Investigate the following:
 
 Also try:
 - Snacks terminal
-- whichkey like Lazyvim, on the right (maybe with a border?).
 --]]
 
 require 'core.setup'
