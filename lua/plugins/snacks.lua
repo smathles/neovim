@@ -17,19 +17,26 @@ return { -- A collection of small QoL plugins
         { section = 'startup' },
       },
     },
-    indent = { enabled = true },
-    quickfile = { enabled = true },
-    lazygit = { enabled = true },
+    indent = {
+      enabled = true,
+      -- Note: this needs better config in future!
+    },
+    lazygit = {
+      enabled = true,
+      -- Note: I don't have lazygit installed lol
+    },
     bufdelete = { enabled = true },
+    quickfile = { enabled = true },
     bigfile = { enabled = true },
     terminal = {
       win = {
         style = 'terminal',
-        position = 'float',
+        -- position = 'float',
+        -- :lua Snacks.terminal.toggle()
       },
     },
   },
 }
 -- vim.keymap.set('n', '<leader>t', function()
 -- require('snacks').terminal()
--- end, {desc = '[T]oggle terminal'})
+-- end, desc = '[T]oggle terminal'})
