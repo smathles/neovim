@@ -3,16 +3,17 @@ return { -- Set global colourscheme
   priority = 1000, -- Make sure to load this before all the other start plugins.
   init = function()
     require('gruvbox').setup {
-      -- This no worky?????!!!!!
-      -- italic = {
-      --   comments = true,
-      --   strings = false,
-      --   folds = false,
-      --   emphasis = true,
-      --   operators = false,
-      -- },
+      italic = {
+        comments = true,
+        strings = false,
+        folds = false,
+        emphasis = true,
+        operators = false,
+      },
+      dim_inactive = false, -- interesting vibe, but no
+      transparent_mode = false, -- Enabling this to true is ugly as hecc
       overrides = {
-        SignColumn = { bg = '#282828' }, -- Make signcolumn color be consistent with rest of colourscheme
+        SignColumn = { link = 'LineNr' }, -- Make signcolumn color be consistent with rest of colourscheme
       },
     }
     vim.cmd.colorscheme 'gruvbox'
@@ -22,7 +23,7 @@ return { -- Set global colourscheme
   end,
 }
 
--- { -- You can easily change to a different colorscheme.
+-- return { -- You can easily change to a different colorscheme.
 --   -- Change the name of the colorscheme plugin below, and then
 --   -- change the command in the config to whatever the name of that colorscheme is.
 --   --
@@ -41,4 +42,5 @@ return { -- Set global colourscheme
 --     -- Like many other themes, this one has different styles, and you could load
 --     -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
 --     vim.cmd.colorscheme 'tokyonight-night'
---     end
+--   end,
+-- }

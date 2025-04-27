@@ -8,15 +8,17 @@
 --[[
 TODO: Investigate the following:
 - blink.cmp
+	- Tried this, nvim-cmp wins for now. Investigate in future maybe.
 - indent-blankline (vs snacks version)
 	- Also work out why it's trying to add stuff for blank lines rip
 	- Get rid of the animation it makes when switching to an indented area
 - fzf-lua
+	- Looks like the way to go in the future
 - lazygit
-
-
+	- Based, but complex. A tool to learn another day maybe.
 Also try:
 - Snacks terminal
+	- And making a snacks window part of the lazygit implementation???
 --]]
 
 require 'core.setup'

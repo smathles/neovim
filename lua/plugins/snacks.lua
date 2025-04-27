@@ -31,12 +31,14 @@ return { -- A collection of small QoL plugins
     terminal = {
       win = {
         style = 'terminal',
-        -- position = 'float',
+        position = 'float',
         -- :lua Snacks.terminal.toggle()
       },
     },
   },
+  keys = {
+    vim.keymap.set('n', '<leader>tt', function()
+      require('snacks').terminal.toggle()
+    end, { desc = '[T]oggle terminal' }),
+  },
 }
--- vim.keymap.set('n', '<leader>t', function()
--- require('snacks').terminal()
--- end, desc = '[T]oggle terminal'})
