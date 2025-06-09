@@ -177,9 +177,9 @@ return { -- LSP Plugins
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
       local servers = {
         clangd = {},
-        csharp_ls = {}, -- remember you need to install this system-wide with `dotnet tool install --global csharp-ls`
-        ts_ls = {},
-        jsonls = {},
+        -- csharp_ls = {}, -- remember you need to install this system-wide with `dotnet tool install --global csharp-ls`
+        -- ts_ls = {},
+        -- jsonls = {},
         rust_analyzer = {},
         marksman = {},
         -- gopls = {},
@@ -191,11 +191,6 @@ return { -- LSP Plugins
         --
         -- But for many setups, the LSP (`ts_ls`) will work just fine
         --
-        hyprls = {
-          cmd = { 'hyprls' },
-          filetypes = { 'hyprlang', 'hl', 'conf' },
-          root_dir = vim.fn.getcwd,
-        },
 
         lua_ls = {
           -- cmd = { ... },
@@ -228,7 +223,7 @@ return { -- LSP Plugins
       local ensure_installed = vim.tbl_keys(servers or {})
       vim.list_extend(ensure_installed, {
         'stylua', -- Used to format Lua code
-        'hyprls', -- Hyprlang support
+        -- 'hyprls', -- Hyprlang support
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 

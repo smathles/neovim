@@ -8,7 +8,7 @@ return {
     'nvim-lua/plenary.nvim',
     'nvim-tree/nvim-web-devicons', -- not strictly required, but recommended
     'MunifTanjim/nui.nvim',
-    '3rd/image.nvim', -- cool, but might increase time for neo-tree to open
+    -- '3rd/image.nvim', -- cool, but might increase time for neo-tree to open
   },
 
   keys = {
