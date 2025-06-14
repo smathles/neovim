@@ -44,7 +44,7 @@ return { -- LSP Plugins
       --    an lsp (for example, opening `main.rs` is associated with `rust_analyzer`) this
       --    function will be executed to configure the current buffer
       vim.api.nvim_create_autocmd('LspAttach', {
-        group = vim.api.nvim_create_augroup('kickstart-lsp-attach', { clear = true }),
+        group = vim.api.nvim_create_augroup('lsp-attach', { clear = true }),
         callback = function(event)
           -- We create a function that lets us more easily define mappings specific
           -- for LSP related items. It sets the mode, buffer and description for us each time.
@@ -97,7 +97,7 @@ return { -- LSP Plugins
           -- When you move your cursor, the highlights will be cleared (the second autocommand).
           local client = vim.lsp.get_client_by_id(event.data.client_id)
           if client and client:supports_method(vim.lsp.protocol.Methods.textDocument_documentHighlight) then
-            local highlight_augroup = vim.api.nvim_create_augroup('kickstart-lsp-highlight', { clear = false })
+            local highlight_augroup = vim.api.nvim_create_augroup('lsp-highlight', { clear = false })
             vim.api.nvim_create_autocmd({ 'CursorHold', 'CursorHoldI' }, {
               buffer = event.buf,
               group = highlight_augroup,
@@ -111,10 +111,10 @@ return { -- LSP Plugins
             })
 
             vim.api.nvim_create_autocmd('LspDetach', {
-              group = vim.api.nvim_create_augroup('kickstart-lsp-detach', { clear = true }),
+              group = vim.api.nvim_create_augroup('lsp-detach', { clear = true }),
               callback = function(event2)
                 vim.lsp.buf.clear_references()
-                vim.api.nvim_clear_autocmds { group = 'kickstart-lsp-highlight', buffer = event2.buf }
+                vim.api.nvim_clear_autocmds { group = 'lsp-highlight', buffer = event2.buf }
               end,
             })
           end
@@ -184,7 +184,7 @@ return { -- LSP Plugins
         -- csharp_ls = {}, -- remember you need to install this system-wide with `dotnet tool install --global csharp-ls`
         -- ts_ls = {},
         -- jsonls = {},
-        rust_analyzer = {},
+        -- rust_analyzer = {},
         marksman = {},
         -- gopls = {},
         -- pyright = {},
@@ -193,11 +193,11 @@ return { -- LSP Plugins
         --    https://github.com/pmizio/typescript-tools.nvim
         -- But for many setups, the LSP (`ts_ls`) will work just fine
         --
-        hyprls = {
-          cmd = { 'hyprls' },
-          filetypes = { 'hyprlang', 'hl', 'conf' },
-          root_dir = vim.fn.getcwd,
-        },
+        -- hyprls = {
+        --   cmd = { 'hyprls' },
+        --   filetypes = { 'hyprlang', 'hl', 'conf' },
+        --   root_dir = vim.fn.getcwd,
+        -- },
         lua_ls = {
           -- cmd = { ... },
           -- filetypes = { ... },
