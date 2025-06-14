@@ -14,6 +14,7 @@ vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
 -- Diagnostic keymaps
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [q]uickfix list' })
+vim.keymap.set('n', '<leader>d', vim.diagnostic.open_float, { desc = 'Open [d]iagnostic float' })
 
 -- Exit terminal mode in the builtin terminal with a nicer shortcut
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
@@ -51,6 +52,22 @@ end, { desc = 'Close all buffers' })
 -- TODO: Make this work for mid-line "tabs" as well
 vim.keymap.set('i', '<S-Tab>', '<C-\\><C-N><<<C-\\><C-N>^i')
 
--- Add bindings to delete whole words in insert mode (heretic)
+-- Add in VS Code-esque commenting binds. Note this might not work in all terminal emulators.
+vim.keymap.set('n', '<C-/>', 'gcc', { desc = '[c]omment line', remap = true })
+vim.keymap.set('v', '<C-/>', 'gc', { desc = '[c]omment line', remap = true })
+vim.keymap.set('i', '<C-/>', '<C-o>gcc', { desc = '[c]omment line', remap = true }) -- NOTE: This teleports you to the beginning of the line. Why?
+
+-- WARNING: HERETICAL CODE INCOMING:
+
+-- Add bindings to delete whole words in insert mode
 vim.keymap.set('i', '<C-BS>', '<C-w>', opts)
 vim.keymap.set('i', '<C-Del>', '<C-o>dw', opts)
+
+--Rebind the command key ':' to ';'
+-- vim.keymap.set({ 'n', 'v' }, ';', ':', opts)
+
+-- Rebind the save command to ctrl-s
+vim.keymap.set({ 'n', 'v' }, '<C-s>', '<Cmd>w<CR>', opts)
+
+-- Rebind the quit command to ctrl-q
+-- vim.keymap.set({ 'n', 'v' }, '<C-q>', '<Cmd>q<CR>', opts)

@@ -21,6 +21,13 @@ Also try:
 	- And making a snacks window part of the lazygit implementation???
 --]]
 
+-- HACK: "cc" = change an entire line
+-- "de" and "d$" are pretty cool too
+-- -- "U" undoes whatever just happened to the *whole* line!
+-- "C-g" shows you cool info
+-- "?" is like "/", but backwards lol
+-- "C-i" and "C-o" do movement???? Research this lol
+
 require 'core.setup'
 require 'core.keymaps'
 require 'core.lazy_init'

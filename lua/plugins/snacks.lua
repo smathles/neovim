@@ -21,9 +21,11 @@ return { -- A collection of small QoL plugins
       enabled = true,
       -- Note: this needs better config in future!
     },
+    animate = {
+      enabled = false,
+    },
     lazygit = {
       enabled = true,
-      -- Note: I don't have lazygit installed lol
     },
     bufdelete = { enabled = true },
     quickfile = { enabled = true },

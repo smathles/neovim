@@ -45,7 +45,7 @@ return {
             end,
             desc = 'Copy Path to Clipboard',
           },
-          ['P'] = { 'toggle_preview', config = { use_float = true } },
+          ['P'] = { 'toggle_preview', config = { use_float = true, use_image_nvim = true } }, -- BUG: Image preview does not work
           ['<bs>'] = 'navigate_up',
           ['.'] = 'set_root',
           ['D'] = 'fuzzy_finder_directory',
