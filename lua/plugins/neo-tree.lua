@@ -9,10 +9,6 @@ return {
     'nvim-lua/plenary.nvim',
     'nvim-tree/nvim-web-devicons',
     'MunifTanjim/nui.nvim',
-<<<<<<< HEAD
-    '3rd/image.nvim', -- cool, but might increase time for neo-tree to open
-=======
->>>>>>> 9fa95b6 (remove image preview (buggy))
   },
 
   keys = {
