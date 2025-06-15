@@ -1,4 +1,5 @@
 return {
+
   'nvim-neo-tree/neo-tree.nvim',
   version = '*',
   lazy = false, -- Load this quickly to make sure netrw behaviour loads immediately!
@@ -6,9 +7,8 @@ return {
 
   dependencies = {
     'nvim-lua/plenary.nvim',
-    'nvim-tree/nvim-web-devicons', -- not strictly required, but recommended
+    'nvim-tree/nvim-web-devicons',
     'MunifTanjim/nui.nvim',
-    -- '3rd/image.nvim', -- cool, but might increase time for neo-tree to open
   },
 
   keys = {
@@ -36,8 +36,8 @@ return {
         mappings = {
           ['<space>'] = false,
           ['Y'] = { -- Yank filepath to clipboard!
-            -- FIXME: This does not return a message to notifications, or open a window, or hightlight that group
-            -- TODO: setup the hightlight function like in the autocommand setup
+            -- FIXME: This does not return a message to notifications, or open a window, or highlight that group
+            -- TODO: setup the highlight function like in the autocommand setup
             function(state)
               local node = state.tree:get_node()
               local path = node:get_id()
@@ -45,7 +45,7 @@ return {
             end,
             desc = 'Copy Path to Clipboard',
           },
-          ['P'] = { 'toggle_preview', config = { use_float = true, use_image_nvim = true } }, -- BUG: Image preview does not work
+          ['P'] = { 'toggle_preview', config = { use_float = true } },
           ['<bs>'] = 'navigate_up',
           ['.'] = 'set_root',
           ['D'] = 'fuzzy_finder_directory',
