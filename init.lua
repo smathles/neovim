@@ -28,6 +28,12 @@ Also try:
 -- "?" is like "/", but backwards lol
 -- "C-i" and "C-o" do movement???? Research this lol
 
+-- BUG:
+-- This executes when opening a swap file from dashboard (and maybe neotree?)!
+--[[
+   E5108: Error executing lua: vim/_editor.lua:447: nvim_exec2(), line 1: Vim(edit):E325: ATTENTION                                                            stack traceback:                                                                                                                                                    [C]: in function 'nvim_exec2'                                                                                                                               vim/_editor.lua:447: in function 'action'                                                                                                                   ...ocal/nvim-data/lazy/snacks.nvim/lua/snacks/dashboard.lua:693: in function <...ocal/nvim-data/lazy/snacks.nvim/lua/snacks/dashboard.lua:692> 
+--]]
+
 require 'core.setup'
 require 'core.keymaps'
 require 'core.lazy_init'
