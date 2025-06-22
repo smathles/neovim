@@ -5,8 +5,8 @@ return { -- Set global colourscheme
     require('gruvbox').setup {
       italic = {
         comments = true,
-        strings = false,
-        folds = false,
+        strings = true,
+        folds = true,
         emphasis = true,
         operators = false,
       },
@@ -17,9 +17,6 @@ return { -- Set global colourscheme
       },
     }
     vim.cmd.colorscheme 'gruvbox'
-
-    -- You can configure highlights by doing something like:
-    vim.cmd.hi 'Comment gui=none'
   end,
 }
 
@@ -42,5 +39,10 @@ return { -- Set global colourscheme
 --     -- Like many other themes, this one has different styles, and you could load
 --     -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
 --     vim.cmd.colorscheme 'tokyonight-night'
+--
+--
+
+-- -- You can configure highlights by doing something like:
+-- vim.cmd.hi 'Comment gui=none'
 --   end,
 -- }
