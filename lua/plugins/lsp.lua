@@ -180,11 +180,11 @@ return { -- LSP Plugins
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
       local servers = {
         clangd = {},
-       -- csharp_ls = {}, -- remember you need to install this system-wide with `dotnet tool install --global csharp-ls`
+        -- csharp_ls = {}, -- remember you need to install this system-wide with `dotnet tool install --global csharp-ls`
         -- ts_ls = {},
         -- jsonls = {},
         -- rust_analyzer = {},
-       marksman = {},
+        marksman = {},
         -- gopls = {},
         -- pyright = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
