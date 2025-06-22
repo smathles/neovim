@@ -180,10 +180,17 @@ return { -- LSP Plugins
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
       local servers = {
         clangd = {},
+<<<<<<< HEAD
         -- csharp_ls = {}, -- remember you need to install this system-wide with `dotnet tool install --global csharp-ls`
         -- ts_ls = {},
         -- jsonls = {},
         -- rust_analyzer = {},
+=======
+        csharp_ls = {}, -- remember you need to install this system-wide with `dotnet tool install --global csharp-ls`
+        ts_ls = {},
+        jsonls = {},
+        rust_analyzer = {},
+>>>>>>> 9fa95b6 (remove image preview (buggy))
         marksman = {},
         -- gopls = {},
         -- pyright = {},
