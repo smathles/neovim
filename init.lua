@@ -19,6 +19,8 @@ TODO: Investigate the following:
 Also try:
 - Snacks terminal
 	- And making a snacks window part of the lazygit implementation???
+- Add in the 'esc' key for a way of closing floating windows from diagnostics and 'K' manual/documentation entries.
+
 --]]
 
 -- HACK: "cc" = change an entire line

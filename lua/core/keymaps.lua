@@ -67,7 +67,7 @@ vim.keymap.set('i', '<C-Del>', '<C-o>dw', opts)
 -- vim.keymap.set({ 'n', 'v' }, ';', ':', opts)
 
 -- Rebind the save command to ctrl-s
-vim.keymap.set({ 'n', 'v' }, '<C-s>', '<Cmd>w<CR>', opts)
+vim.keymap.set({ 'n', 'v', 'i' }, '<C-s>', '<Cmd>w<CR>', opts)
 
 -- Rebind the quit command to ctrl-q
 -- vim.keymap.set({ 'n', 'v' }, '<C-q>', '<Cmd>q<CR>', opts)

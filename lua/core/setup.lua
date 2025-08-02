@@ -79,6 +79,7 @@ end)
 
 -- Make clipboard default all non-yank commands to "" register (similar to normal OS behaviour)
 --  BUG: This approach does not account for command mode deletions! (:delete, etc)
+-- Vim seems to not like letting you rebind its core functions, which is both fair enough and cringe at the same time.
 vim.api.nvim_set_keymap('n', 'd', '""d', { noremap = true })
 vim.api.nvim_set_keymap('n', 'c', '""c', { noremap = true })
 vim.api.nvim_set_keymap('n', 's', '""s', { noremap = true })
