@@ -13,9 +13,10 @@ TODO: Investigate the following:
 	- Also work out why it's trying to add stuff for blank lines rip
 	- Get rid of the animation it makes when switching to an indented area
 - fzf-lua
-	- Looks like the way to go in the future
+	- Looks like the way to go in the future. Telescope works for now.
 - lazygit
 	- Based, but complex. A tool to learn another day maybe.
+	- Maybe add a pop-up window for this in Snacks?
 Also try:
 - Snacks terminal
 	- And making a snacks window part of the lazygit implementation???
@@ -29,6 +30,8 @@ Also try:
 -- "C-g" shows you cool info
 -- "?" is like "/", but backwards lol
 -- "C-i" and "C-o" do movement???? Research this lol
+
+-- BUG: C-<delete> does not exhibit correct behaviour at EOL. Some weird carriage return chicanery going on here.
 
 require 'core.setup'
 require 'core.keymaps'

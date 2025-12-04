@@ -11,16 +11,15 @@ return {
   dependencies = {
     -- Creates a beautiful debugger UI
     'rcarriga/nvim-dap-ui',
-
     -- Required dependency for nvim-dap-ui
     'nvim-neotest/nvim-nio',
-
     -- Installs the debug adapters for you
     'williamboman/mason.nvim',
     'jay-babu/mason-nvim-dap.nvim',
-
     -- Add your own debuggers here
     'leoluz/nvim-dap-go',
+    -- Convenient virtual text representations
+    'theHamsta/nvim-dap-virtual-text',
   },
   keys = { -- Enable Lazy-loading by changing keys to a table and substituting the local variables with a lamba function!
     -- Basic debugging keymaps, feel free to change to your liking!
@@ -93,6 +92,7 @@ return {
       ensure_installed = {
         -- Update this to ensure that you have the debuggers for the langs you want
         'delve',
+        'rust',
       },
     }
 
