@@ -2,7 +2,7 @@ return { -- IDE-like terminal functionality
   'akinsho/toggleterm.nvim',
   version = '*',
   opts = {
-    size = 8,
+    size = 10,
     open_mapping = [[<c-`>]],
     start_in_insert = true,
     hide_numbers = true,

@@ -14,7 +14,7 @@ vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
 -- Diagnostic keymaps
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [q]uickfix list' })
-vim.keymap.set('n', '<leader>d', vim.diagnostic.open_float, { desc = 'Open [d]iagnostic float' })
+vim.keymap.set('n', '<leader>D', vim.diagnostic.open_float, { desc = 'Open [D]iagnostic float' })
 
 -- Exit terminal mode in the builtin terminal with a nicer shortcut
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })

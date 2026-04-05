@@ -135,7 +135,14 @@ return { -- LSP Plugins
       vim.diagnostic.config {
         severity_sort = true,
         float = { border = 'rounded', source = 'if_many' },
-        underline = { severity = vim.diagnostic.severity.ERROR },
+        underline = {
+          severity = {
+            vim.diagnostic.severity.ERROR,
+            vim.diagnostic.severity.WARN,
+            vim.diagnostic.severity.INFO,
+            vim.diagnostic.severity.HINT,
+          },
+        },
         signs = vim.g.have_nerd_font and {
           text = {
             [vim.diagnostic.severity.ERROR] = '󰅚 ',
@@ -228,6 +235,7 @@ return { -- LSP Plugins
       local ensure_installed = vim.tbl_keys(servers or {})
       vim.list_extend(ensure_installed, {
         'stylua', -- Used to format Lua code
+        -- BUG: Some funky magic going on here that's not properly handled.
         -- 'hyprls', -- Hyprlang support
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }

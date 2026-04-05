@@ -24,11 +24,8 @@ Also try:
 
 --]]
 
--- HACK: "cc" = change an entire line
--- "de" and "d$" are pretty cool too
--- -- "U" undoes whatever just happened to the *whole* line!
+-- NOTE: "cc" = change an entire line
 -- "C-g" shows you cool info
--- "?" is like "/", but backwards lol
 -- "C-i" and "C-o" do movement???? Research this lol
 
 -- BUG: C-<delete> does not exhibit correct behaviour at EOL. Some weird carriage return chicanery going on here.

@@ -1,12 +1,4 @@
--- debug.lua
---
--- Shows how to use the DAP plugin to debug your code.
---
--- Primarily focused on configuring the debugger for Go, but can
--- be extended to other languages as well. That's why it's called
--- kickstart.nvim and not kitchen-sink.nvim ;)
-
-return {
+return { -- Shows how to use the DAP plugin to debug your code.
   'mfussenegger/nvim-dap',
   dependencies = {
     -- Creates a beautiful debugger UI
@@ -24,46 +16,46 @@ return {
   keys = { -- Enable Lazy-loading by changing keys to a table and substituting the local variables with a lamba function!
     -- Basic debugging keymaps, feel free to change to your liking!
     {
-      '<F5>',
+      '<leader>dc',
       function()
         require('dap').continue()
       end,
-      desc = 'Debug: Start/Continue',
+      desc = 'Debug: Start/[c]ontinue',
     },
     {
-      '<F1>',
+      '<leader>di',
       function()
         require('dap').step_into()
       end,
-      desc = 'Debug: Step Into',
+      desc = 'Debug: Step [i]nto',
     },
     {
-      '<F2>',
+      '<leader>dv',
       function()
         require('dap').step_over()
       end,
-      desc = 'Debug: Step Over',
+      desc = 'Debug: Step O[v]er',
     },
     {
-      '<F3>',
+      '<leader>do',
       function()
         require('dap').step_out()
       end,
-      desc = 'Debug: Step Out',
+      desc = 'Debug: Step [o]ut',
     },
     {
-      '<leader>p',
+      '<leader>dt',
       function()
         require('dap').toggle_breakpoint()
       end,
-      desc = 'Debug: Toggle Breakpoint',
+      desc = 'Debug: [t]oggle Breakpoint',
     },
     {
-      '<leader>P',
+      '<leader>dp',
       function()
         require('dap').set_breakpoint(vim.fn.input 'Breakpoint condition: ')
       end,
-      desc = 'Debug: Set Breakpoint',
+      desc = 'Debug: Set Break[p]oint',
     },
     -- Toggle to see last session result. Without this, you can't see session output in case of unhandled exception.
     {
@@ -92,7 +84,7 @@ return {
       ensure_installed = {
         -- Update this to ensure that you have the debuggers for the langs you want
         'delve',
-        'rust',
+        'codelldb',
       },
     }
 
@@ -140,6 +132,22 @@ return {
         -- On Windows delve must be run attached or it crashes.
         -- See https://github.com/leoluz/nvim-dap-go/blob/main/README.md#configuring
         detached = vim.fn.has 'win32' == 0,
+      },
+    }
+
+    -- Rust dap setup
+    local mason_path = vim.fn.stdpath 'data' .. '/mason/'
+
+    dap.configurations.rust = {
+      {
+        name = 'Launch executable',
+        type = 'codelldb',
+        request = 'launch',
+        program = function()
+          return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/target/debug/', 'file')
+        end,
+        cwd = '${workspaceFolder}',
+        stopOnEntry = false,
       },
     }
   end,
